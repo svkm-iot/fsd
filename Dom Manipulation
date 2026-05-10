@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM Example</title>
+</head>
+
+<body>
+
+    <h1 id="demo">Hello</h1>
+
+    <p id="msg">This is paragraph text.</p>
+
+    <button onclick="changeText()">Change Text</button>
+
+    <button onclick="hideText()">Hide</button>
+
+    <button onclick="showText()">Show</button>
+
+    <button onclick="changeStyle()">Change Style</button>
+
+    <script>
+
+        function changeText()
+        {
+            document.getElementById("demo").innerHTML = "Welcome Student";
+        }
+
+        function hideText()
+        {
+            document.getElementById("msg").style.display = "none";
+        }
+
+        function showText()
+        {
+            document.getElementById("msg").style.display = "block";
+        }
+
+        function changeStyle()
+        {
+            document.getElementById("demo").style.color = "red";
+        }
+
+    </script>
+
+</body>
+</html>

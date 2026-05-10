@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hoisting Demo</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background-color: rgb(211, 211, 211);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .box{
+            background-color: white;
+            padding: 20px;
+            width: 600px;
+            margin: auto;
+            border: 1px solid black;
+        }
+
+        button{
+            background-color: lightblue;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        #output{
+            margin-top: 20px;
+            background-color: lightcyan;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>JavaScript Hoisting Demo</h1>
+
+    <button onclick="showVar()">VAR</button>
+    <button onclick="showLet()">LET</button>
+    <button onclick="showConst()">CONST</button>
+    <button onclick="showFunction()">FUNCTION</button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+
+function print(msg){
+    document.getElementById("output").innerHTML += msg + "<br>";
+}
+
+function clearBox(){
+    document.getElementById("output").innerHTML = "";
+}
+
+function showVar(){
+
+    clearBox();
+
+    print("VAR Example");
+
+    print(a);
+
+    var a = 10;
+
+    print("Value after declaration = " + a);
+
+    if(true){
+        var x = 100;
+    }
+
+    print("Var Scope x = " + x);
+}
+
+function showLet(){
+
+    clearBox();
+
+    print("LET Example");
+
+    try{
+        print(b);
+    }
+    catch(error){
+        print("Error: " + error.message);
+    }
+
+    let b = 20;
+
+    print("Value after declaration = " + b);
+}
+
+function showConst(){
+
+    clearBox();
+
+    print("CONST Example");
+
+    try{
+        print(c);
+    }
+    catch(error){
+        print("Error: " + error.message);
+    }
+
+    const c = 30;
+
+    print("Value after declaration = " + c);
+}
+
+function showFunction(){
+
+    clearBox();
+
+    sayHello();
+
+    function sayHello(){
+        print("Function Hoisting Works");
+    }
+}
+
+</script>
+
+</body>
+</html>

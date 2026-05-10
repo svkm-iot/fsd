@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Dynamic Webpage</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin: auto;
+            line-height: 200px;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+
+        input{
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        button{
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        #message{
+            margin-top: 20px;
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Dynamic Webpage using jQuery</h2>
+
+    <div id="box">Hover Me</div>
+
+    <br>
+
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <br>
+
+    <button id="btn">Click Me</button>
+
+    <div id="message"></div>
+
+    <script>
+
+        // Hover Event
+        $("#box").hover(
+            function(){
+                $(this).css("background-color","orange");
+                $(this).text("Mouse Over");
+            },
+
+            function(){
+                $(this).css("background-color","skyblue");
+                $(this).text("Hover Me");
+            }
+        );
+
+        // Button Click Event
+       $("#btn").click(function(){
+    $("#box").hide().show();
+    $("#message").text($("#name").val());
+});
+
+    </script>
+
+</body>
+</html>

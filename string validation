@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>String Validation</title>
+</head>
+
+<body>
+
+    <h2>Student Form</h2>
+
+    Enter Name:
+    <input type="text" id="name">
+
+    <br><br>
+
+    Enter Age:
+    <input type="text" id="age">
+
+    <br><br>
+
+    <button onclick="checkData()">Submit</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+
+        function checkData()
+        {
+            
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+
+            
+            name = name.toUpperCase();
+
+            
+            age = Number(age);
+
+            
+            if(name == "" || age == "")
+            {
+                document.getElementById("result").innerHTML =
+                "Please fill all fields";
+            }
+            else
+            {
+                document.getElementById("result").innerHTML =
+                "Name: " + name + "<br>Age: " + age;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

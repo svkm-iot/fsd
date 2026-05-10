@@ -4,32 +4,33 @@
     <title>Hoisting Demo</title>
 
     <style>
+
         body{
             font-family: Arial;
-            background-color: rgb(211, 211, 211);
+            background-color: lightgray;
             text-align: center;
             padding: 20px;
         }
 
         .box{
             background-color: white;
-            padding: 20px;
-            width: 600px;
+            width: 500px;
             margin: auto;
+            padding: 20px;
             border: 1px solid black;
         }
 
         button{
-            background-color: lightblue;
             padding: 10px;
             margin: 5px;
         }
 
         #output{
             margin-top: 20px;
-            background-color: lightcyan;
-            padding: 5px;
+            background-color: #eeeeee;
+            padding: 10px;
         }
+
     </style>
 </head>
 
@@ -37,11 +38,14 @@
 
 <div class="box">
 
-    <h1>JavaScript Hoisting Demo</h1>
+    <h1>Hoisting Demo</h1>
 
     <button onclick="showVar()">VAR</button>
+
     <button onclick="showLet()">LET</button>
+
     <button onclick="showConst()">CONST</button>
+
     <button onclick="showFunction()">FUNCTION</button>
 
     <div id="output"></div>
@@ -50,77 +54,43 @@
 
 <script>
 
-function print(msg){
-    document.getElementById("output").innerHTML += msg + "<br>";
-}
+function showVar() {
 
-function clearBox(){
-    document.getElementById("output").innerHTML = "";
-}
+    var text = "VAR Example <br>";
 
-function showVar(){
-
-    clearBox();
-
-    print("VAR Example");
-
-    print(a);
+    text += a + "<br>";
 
     var a = 10;
 
-    print("Value after declaration = " + a);
+    text += "Value = " + a;
 
-    if(true){
-        var x = 100;
-    }
-
-    print("Var Scope x = " + x);
+    document.getElementById("output").innerHTML = text;
 }
 
-function showLet(){
-
-    clearBox();
-
-    print("LET Example");
-
-    try{
-        print(b);
-    }
-    catch(error){
-        print("Error: " + error.message);
-    }
+function showLet() {
 
     let b = 20;
 
-    print("Value after declaration = " + b);
+    document.getElementById("output").innerHTML =
+    "LET Value = " + b;
 }
 
-function showConst(){
-
-    clearBox();
-
-    print("CONST Example");
-
-    try{
-        print(c);
-    }
-    catch(error){
-        print("Error: " + error.message);
-    }
+function showConst() {
 
     const c = 30;
 
-    print("Value after declaration = " + c);
+    document.getElementById("output").innerHTML =
+    "CONST Value = " + c;
 }
 
-function showFunction(){
+function showFunction() {
 
-    clearBox();
+    hello();
 
-    sayHello();
+    function hello() {
 
-    function sayHello(){
-        print("Function Hoisting Works");
+        document.getElementById("output").innerHTML =
+        "Function Hoisting Works";
     }
 }
 
